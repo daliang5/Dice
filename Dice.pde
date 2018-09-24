@@ -2,12 +2,14 @@ void setup()
 {
 	noLoop();
   size(500,500);  
-  new Die(20,20);
+  
 }
 void draw()
 {
 	background(255);
-  show();
+  Die bob = new Die(100,50);
+  bob.show();
+  
 }
 void mousePressed()
 {
@@ -20,7 +22,7 @@ class Die //models one single dice cube
 	Die(int x, int y) //constructor
 	{
 		//variable initializations here
-    dieLen = 10;
+    dieLen = 75;
     myX = x;
     myY = y;
     
@@ -32,8 +34,13 @@ class Die //models one single dice cube
 	}
 	void show()
 	{
-	  while(x < 500)
+	  for(int i = 0; i <400; i+=110)
     {
-      	rect(myX + 50,myY,dieLen,dieLen);
+      for(int d =0; d < 400; d+=110)	
+      {
+        fill((int)(Math.random()*255),255,255);
+        rect(d+20,i+20,dieLen,dieLen);
+      }
+    }
 	}
 }
