@@ -9,7 +9,6 @@ void draw()
 	background(255);
   Die bob = new Die(100,50);
   bob.show();
-  
 }
 void mousePressed()
 {
@@ -29,13 +28,16 @@ class Die //models one single dice cube
 	int roll()
 	{
 		return (int)(Math.random()*6)+1;
+  
 	}
 	void show()
 	{
+    int totalRoll = 0;
 	  for(int i = 0; i < 400; i+=110)
     {
       for(int d =0; d < 400; d+=110)	
       {
+        
         int roll = roll();
         fill((int)(Math.random()*255),255,255);
         rect(d+20,i+20,dieLen,dieLen);
@@ -84,7 +86,9 @@ class Die //models one single dice cube
           ellipse(d+40,i+60,10,10);
           ellipse(d+80,i+60,10,10);
         }
+        totalRoll = totalRoll+roll;
       }
     }
+    text("The sum is: " + totalRoll,300,450);
 	}
 }
