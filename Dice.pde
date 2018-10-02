@@ -25,7 +25,7 @@ class Die //models one single dice cube
     myX = x;
     myY = y;
 	}
-	int roll()
+	int rolli()
 	{
 		return (int)(Math.random()*6)+1;
   
@@ -38,7 +38,7 @@ class Die //models one single dice cube
       for(int d =0; d < 400; d+=110)	
       {
         
-        int roll = roll();
+        int roll = rolli();
         fill((int)(Math.random()*255),255,255);
         rect(d+20,i+20,dieLen,dieLen);
         if(roll == 1)
